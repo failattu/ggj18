@@ -11,9 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120e43a7012622e49aca0c9217acd1f9, type: 3}
   m_Name: ExplorerWaterwayLayer
   m_EditorClassIdentifier: 
-  Active: 1
+  Active: 0
   _classificationKey: 
   _key: waterway
   Filters: []
   _defaultStack: {fileID: 11400000, guid: be7a7b4a477f8be42b221ba7deb1d0e3, type: 2}
   Stacks: []
+  _enableCoroutines: 0
+  _entityPerCoroutine: 20
