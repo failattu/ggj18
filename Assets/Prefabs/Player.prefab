@@ -54,5 +54,8 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 4294967295
+  beaconLayer:
+    serializedVersion: 2
+    m_Bits: 256
   beaconPrefab: {fileID: 1350712260733428, guid: 0f1ca8314e1a15c489c6931fa15e639b,
     type: 2}
