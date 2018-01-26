@@ -11,13 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b10536479dade041b6db9893fdf723a, type: 3}
   m_Name: ExplorerImageFactory
   m_EditorClassIdentifier: 
-  _mapIdType: 0
+  _mapIdType: 1
   _customStyle:
-    Name: 
-    Id: mapbox://styles/davidrhodes/cjaqyk6rqhucy2rrv585sh5yu
-    Modified: 
-    UserName: 
-  _mapId: mapbox.satellite
+    Name: Teletele
+    Id: mapbox://styles/toikka/cjcwbla2p026y2smcgxfbh79c
+    Modified: 2018-01-26T19:32:17.736Z
+    UserName: toikka
+  _mapId: mapbox://styles/toikka/cjcwbla2p026y2smcgxfbh79c
   _useCompression: 0
   _useMipMap: 0
   _useRetina: 1

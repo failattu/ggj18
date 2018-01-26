@@ -15,3 +15,6 @@ MonoBehaviour:
   Visualizers:
   - {fileID: 11400000, guid: 69e43c5ee5f5f6b46a12bf3f1ba27039, type: 2}
   - {fileID: 11400000, guid: 42d0c054e597a4590a29b5b66fbec4aa, type: 2}
+  - {fileID: 11400000, guid: a846a72ce4bee9241bd14a51354dc3a8, type: 2}
+  - {fileID: 11400000, guid: 5651e13d531e6b44d878696339c4f94d, type: 2}
+  - {fileID: 11400000, guid: f1ff2b285816a314ca91887b82fc5901, type: 2}

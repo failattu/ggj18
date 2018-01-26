@@ -16,4 +16,9 @@ MonoBehaviour:
   _key: contour
   Filters: []
   _defaultStack: {fileID: 11400000, guid: b3647897e3930654caf419e243c60bfc, type: 2}
-  Stacks: []
+  Stacks:
+  - Type: 
+    Types: []
+    Stack: {fileID: 0}
+  _enableCoroutines: 0
+  _entityPerCoroutine: 20

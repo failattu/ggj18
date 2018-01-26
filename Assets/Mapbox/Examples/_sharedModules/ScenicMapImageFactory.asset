@@ -13,11 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mapIdType: 1
   _customStyle:
-    Name: 
-    Id: mapbox://styles/mapbox/cjavylmncmgeb2rlnpimhp95q
-    Modified: 
-    UserName: 
-  _mapId: mapbox://styles/mapbox/cjavylmncmgeb2rlnpimhp95q
+    Name: Teletele Map Fix
+    Id: mapbox://styles/toikka/cjcwdn8h0044n2sqwqyz07681
+    Modified: 2018-01-26T20:25:57.665Z
+    UserName: toikka
+  _mapId: mapbox://styles/toikka/cjcwdn8h0044n2sqwqyz07681
   _useCompression: 0
   _useMipMap: 1
   _useRetina: 1
