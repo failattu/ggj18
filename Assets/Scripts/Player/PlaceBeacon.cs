@@ -10,13 +10,18 @@ public class PlaceBeacon : MonoBehaviour
     public LayerMask beaconLayer;
     public GameObject beaconPrefab;
 
+    GameObject beaconParent;
+
     private void Start()
     {
         master = Master.master;
+        beaconParent = new GameObject();
+        beaconParent.name = "Beacons";
     }
 
     Ray ray;
     RaycastHit hit;
+    GameObject tempBeacon;
     private void Update()
     {
         if(Input.GetMouseButtonUp(0))
@@ -28,8 +33,10 @@ public class PlaceBeacon : MonoBehaviour
                     Debug.Log("Popup! NOT SO CLOSE!");
                 else
                 {
-                    Instantiate(beaconPrefab, hit.point, Quaternion.identity);
-                    master.beacons.Add(new Beacon(hit.point));
+                    tempBeacon = Instantiate(beaconPrefab, hit.point, Quaternion.identity) as GameObject;
+                    tempBeacon.name = beaconPrefab.name + " " + master.beacons.Count;
+                    tempBeacon.transform.parent = beaconParent.transform;
+                    master.beacons.Add(new Beacon(tempBeacon, hit.point));
                 }
             }
         }
