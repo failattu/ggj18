@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Name: SpawnInParkModifier
   m_EditorClassIdentifier: 
   Active: 1
-  _spawnRateInSquareMeters: 20
+  _spawnRateInSquareMeters: 15
   _maxSpawn: 1000
   _prefabs:
   - {fileID: 1000012727180236, guid: 3a36803f92a1f4fb98a10f9d00e184bc, type: 2}
   - {fileID: 1000010232061618, guid: e161657d9f870459abb03b980a14de8a, type: 2}
+  - {fileID: 1000010232061618, guid: 6b9f96224073c6442a1723ab6c39aa2b, type: 2}
+  - {fileID: 1000010232061618, guid: 66b6270934b8fee49b6013673aa2dcd2, type: 2}
+  - {fileID: 1000010232061618, guid: 76ed40c7467f7ea4fa520697f8b58f66, type: 2}
+  - {fileID: 1000010232061618, guid: 1213aa6d0f4df164bb84932f3e28f363, type: 2}
   _layerMask:
     serializedVersion: 2
     m_Bits: 512
