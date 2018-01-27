@@ -18,6 +18,7 @@ public class Master : MonoBehaviour
 {
     public static Master master; //lel
 
+    public int beaconPrice;
     public int startingMoney;
     public int players;
 
@@ -31,6 +32,9 @@ public class Master : MonoBehaviour
     public int[] popularity;
 
     public List<BeaconData>[] beacons;
+
+    public float incomeFrequency = 5f;
+    private float incomeCountdown;
 
     private void Awake()
     {
@@ -52,21 +56,28 @@ public class Master : MonoBehaviour
 
     private void Start()
     {
-
+        incomeCountdown = incomeFrequency;
     }
 
     int beaconIncome = 0;
     private void Update()
     {
-        for(int i = 0; i < players; i++)
+
+        incomeCountdown -= Time.deltaTime;
+        if (incomeCountdown <= 0)
         {
-            for (int j = 0; j < beacons[i].Count; j++)
+            incomeCountdown = incomeFrequency;
+            for (int i = 0; i < players; i++)
             {
-                money[i] += beacons[i][j].script.IncomeUpdate();
+                income[i] = 0;
 
+                for (int j = 0; j < beacons[i].Count; j++)
+                {
+                    income[i] += beacons[i][j].script.Income();
+                }
+
+                money[i] += income[i] - upkeep[i];
             }
-
-            money[i] -= upkeep[i];
         }
     }
 

@@ -12,8 +12,6 @@ public class Beacon : MonoBehaviour
     public Vector3 pos = Vector3.zero;
     public GameObject obj;
     public Transform radius;
-    public float incomeFrequency = 5f;
-    private float incomeCountdown;
 
     public void Init(GameObject obj, Vector3 pos, int affectedPeople)
     {
@@ -30,8 +28,6 @@ public class Beacon : MonoBehaviour
                 break;
             }
         }
-
-        incomeCountdown = incomeFrequency;
     }
 
     public void Upgrade(int player)
@@ -44,15 +40,8 @@ public class Beacon : MonoBehaviour
         }
     }
 
-    public int IncomeUpdate()
+    public int Income()
     {
-        incomeCountdown -= Time.deltaTime;
-        if (incomeCountdown <= 0)
-        {
-            incomeCountdown = incomeFrequency;
-            return Mathf.RoundToInt(affectedPeople / 1000) * 10;
-        }
-        else
-            return 0;
+        return Mathf.RoundToInt(affectedPeople / 1000) * 10;
     }
 }
