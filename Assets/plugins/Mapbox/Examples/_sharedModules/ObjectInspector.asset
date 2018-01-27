@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e011ce2209f4df1b390a7750c33744, type: 3}
   m_Name: ObjectInspector
   m_EditorClassIdentifier: 
-  Active: 1
+  Active: 0
