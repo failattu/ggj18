@@ -47,7 +47,7 @@ public class PlaceBeacon : MonoBehaviour
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Input.GetMouseButtonUp(0) && canBePlaced && master.Pay(0, 500))
+        if (Input.GetMouseButtonUp(0) && canBePlaced && master.Pay(0, master.beaconPrice))
         {
             SpawnBeacon(0, beaconGhost.position);
             TogglePlaceBeacon();
