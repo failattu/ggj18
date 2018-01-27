@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BeaconData
 {
@@ -36,13 +37,19 @@ public class Master : MonoBehaviour
     public float incomeFrequency = 5f;
     private float incomeCountdown;
 
+	//TextMeshProSHIIT
+	public TextMeshProUGUI clients_text;
+	public TextMeshProUGUI income_text;
+	public TextMeshProUGUI upkeep_text;
+	public TextMeshProUGUI my_money_text;
+
     private void Awake()
     {
         money = new int[players];
         income = new int[players];
         upkeep = new int[players];
         popularity = new float[players];
-
+	
         master = this;
         beacons = new List<BeaconData>[players];
         for(int i = 0; i < players; i++)
@@ -52,6 +59,7 @@ public class Master : MonoBehaviour
             upkeep[i] = 0;
             popularity[i] = 0;
         }
+		my_money_text.text = startingMoney.ToString();
     }
 
     private void Start()
@@ -78,12 +86,17 @@ public class Master : MonoBehaviour
 
                 money[i] += income[i] - upkeep[i];
             }
+			my_money_text.text = money [0].ToString() + " mk";
+			upkeep_text.text = upkeep [0].ToString () + " mk";
+			income_text.text = income [0].ToString () + " mk";
+			clients_text.text = "0";
         }
     }
 
     public void Income(int player, int amount)
     {
         money[player] += amount;
+
     }
 
     public bool Pay(int player, int cost)
@@ -91,6 +104,7 @@ public class Master : MonoBehaviour
         if(money[player] > cost)
         {
             money[player] -= cost;
+			my_money_text.text = money[0].ToString() + " mk";
             return true;
         }
         else
