@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: BuildingLayerModifier
   m_EditorClassIdentifier: 
   Active: 1
-  _layerId: 0
+  _layerId: 9
