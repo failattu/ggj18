@@ -41,7 +41,11 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 		[Tooltip("Create side walls as separate submesh.")]
 		private bool _separateSubmesh = true;
 
-		public override ModifierType Type { get { return ModifierType.Preprocess; } }
+        [SerializeField]
+        [Tooltip("Puukotus.")]
+        private bool _useRandomHeight = false;
+
+        public override ModifierType Type { get { return ModifierType.Preprocess; } }
 
 		private int _counter;
 
@@ -81,6 +85,10 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 					hf *= _scale;
 				}
 			}
+
+            //Puukotus
+            if (_useRandomHeight && hf < 8)
+                hf = UnityEngine.Random.Range(4, 8);
 
 			var max = md.Vertices[0].y;
 			var min = md.Vertices[0].y;

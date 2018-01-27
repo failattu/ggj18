@@ -34,48 +34,13 @@ public class PlaceBeacon : MonoBehaviour
 
     Ray ray;
     RaycastHit hit;
-    GameObject tempBeacon;
-    Beacon tempBeaconScript;
-    Collider[] buildings;
     private void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Input.GetMouseButtonUp(0) && canBePlaced && master.Pay(500))
         {
-            tempBeacon = Instantiate(beaconPrefab, hit.point, Quaternion.identity) as GameObject;
-            tempBeacon.name = beaconPrefab.name + " " + master.beacons.Count;
-            tempBeacon.transform.parent = beaconParent.transform;
-            tempBeaconScript = tempBeacon.GetComponent<Beacon>();
-            tempBeaconScript.Init(tempBeacon, hit.point);
-            master.beacons.Add(new BeaconData(tempBeacon, tempBeaconScript));
-
-            buildings = Physics.OverlapSphere(hit.point, baseRange, buildingLayer);
-            float totalSize = 0;
-            if (buildings.Length > 0)
-            {
-                for(int i = 0; i < buildings.Length; i++)
-                {
-                    totalSize += buildings[i].bounds.size.x * buildings[i].bounds.size.y * buildings[i].bounds.size.z;
-                }
-            }
-
-            print("Total people inside this radius: " + Mathf.RoundToInt(totalSize));
-
-            //if(Physics.Raycast(ray, out hit, Mathf.Infinity, layers))
-            //{
-            //    if(Physics.OverlapSphere(hit.point, 1f, beaconLayer).Length > 0)
-            //        Debug.Log("Popup! NOT SO CLOSE!");
-            //    else if(master.Pay(500))
-            //    {
-            //        tempBeacon = Instantiate(beaconPrefab, hit.point, Quaternion.identity) as GameObject;
-            //        tempBeacon.name = beaconPrefab.name + " " + master.beacons.Count;
-            //        tempBeacon.transform.parent = beaconParent.transform;
-            //        tempBeaconScript = tempBeacon.GetComponent<Beacon>();
-            //        tempBeaconScript.Init(tempBeacon, hit.point);
-            //        master.beacons.Add(new BeaconData(tempBeacon, tempBeaconScript));
-            //    }
-            //}
+            SpawnBeacon();
         }
 
         if(placeBeacon)
@@ -112,5 +77,36 @@ public class PlaceBeacon : MonoBehaviour
             beaconGhost.position = hidePos;
             canBePlaced = false;
         }
+    }
+
+    public void SpawnBeacon()
+    {
+        SpawnBeacon(beaconGhost.position);
+    }
+
+    GameObject tempBeacon;
+    Beacon tempBeaconScript;
+    Collider[] buildings;
+    public void SpawnBeacon(Vector3 pos)
+    {
+        tempBeacon = Instantiate(beaconPrefab, pos, Quaternion.identity) as GameObject;
+        tempBeacon.name = beaconPrefab.name + " " + master.beacons.Count;
+        tempBeacon.transform.parent = beaconParent.transform;
+        tempBeaconScript = tempBeacon.GetComponent<Beacon>();
+        tempBeaconScript.Init(tempBeacon, hit.point);
+        master.beacons.Add(new BeaconData(tempBeacon, tempBeaconScript));
+
+        buildings = Physics.OverlapSphere(hit.point, baseRange, buildingLayer);
+        float totalSize = 0;
+        print(buildings.Length);
+        if (buildings.Length > 0)
+        {
+            for (int i = 0; i < buildings.Length; i++)
+            {
+                totalSize += (buildings[i].bounds.size.x * buildings[i].bounds.size.y * buildings[i].bounds.size.z) * buildings.Length;
+            }
+        }
+
+        print("Total people inside this radius: " + Mathf.RoundToInt(totalSize));
     }
 }

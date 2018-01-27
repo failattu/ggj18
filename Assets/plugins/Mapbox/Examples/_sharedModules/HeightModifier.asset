@@ -14,6 +14,7 @@ MonoBehaviour:
   Active: 1
   _flatTops: 1
   _forceHeight: 0
-  _height: 0
+  _height: 15
   _createSideWalls: 1
   _separateSubmesh: 1
+  _useRandomHeight: 1
