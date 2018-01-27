@@ -92,19 +92,20 @@ public class PlaceBeacon : MonoBehaviour
 
     GameObject tempBeacon;
     Beacon tempBeaconScript;
-    Collider[] buildings;
+    //Collider[] buildings;
     Collider[] otherBeacons;
     public void SpawnBeacon(int player, Vector3 pos)
     {
+        float totalSize = 0;
         otherBeacons = Physics.OverlapSphere(hit.point, baseRange, beaconRadiusLayer);
         if(otherBeacons.Length > 0)
         {
-
+            CalculateNewPopulation(otherBeacons);
         }
         else
         {
-            buildings = Physics.OverlapSphere(hit.point, baseRange, buildingLayer);
-            float totalSize = 0;
+            Collider[] buildings = Physics.OverlapSphere(hit.point, baseRange, buildingLayer);
+            
             //print(buildings.Length);
             if (buildings.Length > 0)
             {
@@ -119,15 +120,21 @@ public class PlaceBeacon : MonoBehaviour
         tempBeacon.name = beaconPrefab.name + " " + master.beacons[player].Count;
         tempBeacon.transform.parent = beaconParent[player].transform;
         tempBeaconScript = tempBeacon.GetComponent<Beacon>();
-        tempBeaconScript.Init(tempBeacon, hit.point, Mathf.RoundToInt(totalSize));
+        tempBeaconScript.Init(player, tempBeacon, hit.point, Mathf.RoundToInt(totalSize));
         master.beacons[player].Add(new BeaconData(tempBeacon, tempBeaconScript));
         master.upkeep[player] += beaconUpkeep;
 
         //print("Total people inside this radius: " + Mathf.RoundToInt(totalSize));
     }
 
-    public void CalculateNewPopulation(Beacon[] beacons)
+    public void CalculateNewPopulation(Collider[] beacons)
     {
+        Collider[][] buildings = new Collider[beacons.Length][];
+        Collider[] buildingsTemp;
+
+        //for (int i = 0; i < beacons.Length; i++)
+        //    buildingsTemp[i] = Physics.OverlapSphere(hit.point, baseRange, buildingLayer);
+
 
     }
 }
