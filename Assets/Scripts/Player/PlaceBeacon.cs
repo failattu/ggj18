@@ -105,7 +105,7 @@ public class PlaceBeacon : MonoBehaviour
         {
             for (int i = 0; i < buildings.Length; i++)
             {
-                totalSize += (buildings[i].bounds.size.x * buildings[i].bounds.size.y * buildings[i].bounds.size.z) * buildings.Length;
+                totalSize += (buildings[i].bounds.size.x * buildings[i].bounds.size.y * buildings[i].bounds.size.z) * buildings.Length / 100f;
             }
         }
 
