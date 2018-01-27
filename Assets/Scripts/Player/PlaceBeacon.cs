@@ -22,6 +22,7 @@ public class PlaceBeacon : MonoBehaviour
     Ray ray;
     RaycastHit hit;
     GameObject tempBeacon;
+    Beacon tempBeaconScript;
     private void Update()
     {
         if(Input.GetMouseButtonUp(0))
@@ -36,7 +37,9 @@ public class PlaceBeacon : MonoBehaviour
                     tempBeacon = Instantiate(beaconPrefab, hit.point, Quaternion.identity) as GameObject;
                     tempBeacon.name = beaconPrefab.name + " " + master.beacons.Count;
                     tempBeacon.transform.parent = beaconParent.transform;
-                    master.beacons.Add(new Beacon(tempBeacon, hit.point));
+                    tempBeaconScript = tempBeacon.GetComponent<Beacon>();
+                    tempBeaconScript.Init(tempBeacon, hit.point);
+                    master.beacons.Add(new BeaconData(tempBeacon, tempBeaconScript));
                 }
             }
         }
