@@ -8,6 +8,7 @@ public class PlaceBeacon : MonoBehaviour
 
     public LayerMask layers;
     public LayerMask beaconLayer;
+    public LayerMask buildingLayer;
     public GameObject beaconPrefab;
     public Transform beaconGhost;
     public Material[] beaconGhostMaterials;
@@ -19,6 +20,8 @@ public class PlaceBeacon : MonoBehaviour
 
     [System.NonSerialized]
     public bool placeBeacon;
+
+    public float baseRange;
 
     private void Start()
     {
@@ -33,6 +36,7 @@ public class PlaceBeacon : MonoBehaviour
     RaycastHit hit;
     GameObject tempBeacon;
     Beacon tempBeaconScript;
+    Collider[] buildings;
     private void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -45,6 +49,18 @@ public class PlaceBeacon : MonoBehaviour
             tempBeaconScript = tempBeacon.GetComponent<Beacon>();
             tempBeaconScript.Init(tempBeacon, hit.point);
             master.beacons.Add(new BeaconData(tempBeacon, tempBeaconScript));
+
+            buildings = Physics.OverlapSphere(hit.point, baseRange, buildingLayer);
+            float totalSize = 0;
+            if (buildings.Length > 0)
+            {
+                for(int i = 0; i < buildings.Length; i++)
+                {
+                    totalSize += buildings[i].bounds.size.x * buildings[i].bounds.size.y * buildings[i].bounds.size.z;
+                }
+            }
+
+            print("Total people inside this radius: " + Mathf.RoundToInt(totalSize));
 
             //if(Physics.Raycast(ray, out hit, Mathf.Infinity, layers))
             //{
