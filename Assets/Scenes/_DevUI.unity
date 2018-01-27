@@ -1579,7 +1579,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4741442550431522, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -18.8
       objectReference: {fileID: 0}
     - target: {fileID: 4741442550431522, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1619,16 +1619,6 @@ Prefab:
     - target: {fileID: 114351306302640724, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198726536780939958, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f,
-        type: 2}
-      propertyPath: InheritVelocityModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198726536780939958, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f,
-        type: 2}
-      propertyPath: InheritVelocityModule.m_Mode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
