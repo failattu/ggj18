@@ -6,6 +6,8 @@ public class PlaceBeacon : MonoBehaviour
 {
     private Master master;
 
+    public int beaconUpkeep;
+
     public LayerMask layers;
     public LayerMask beaconLayer;
     public LayerMask buildingLayer;
@@ -48,6 +50,7 @@ public class PlaceBeacon : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && canBePlaced && master.Pay(0, 500))
         {
             SpawnBeacon(0, beaconGhost.position);
+            TogglePlaceBeacon();
         }
 
         if(placeBeacon)
@@ -91,13 +94,6 @@ public class PlaceBeacon : MonoBehaviour
     Collider[] buildings;
     public void SpawnBeacon(int player, Vector3 pos)
     {
-        tempBeacon = Instantiate(beaconPrefab, pos, Quaternion.identity) as GameObject;
-        tempBeacon.name = beaconPrefab.name + " " + master.beacons[player].Count;
-        tempBeacon.transform.parent = beaconParent[player].transform;
-        tempBeaconScript = tempBeacon.GetComponent<Beacon>();
-        tempBeaconScript.Init(tempBeacon, hit.point);
-        master.beacons[player].Add(new BeaconData(tempBeacon, tempBeaconScript));
-
         buildings = Physics.OverlapSphere(hit.point, baseRange, buildingLayer);
         float totalSize = 0;
         print(buildings.Length);
@@ -108,6 +104,14 @@ public class PlaceBeacon : MonoBehaviour
                 totalSize += (buildings[i].bounds.size.x * buildings[i].bounds.size.y * buildings[i].bounds.size.z) * buildings.Length / 100f;
             }
         }
+
+        tempBeacon = Instantiate(beaconPrefab, pos, Quaternion.identity) as GameObject;
+        tempBeacon.name = beaconPrefab.name + " " + master.beacons[player].Count;
+        tempBeacon.transform.parent = beaconParent[player].transform;
+        tempBeaconScript = tempBeacon.GetComponent<Beacon>();
+        tempBeaconScript.Init(tempBeacon, hit.point, Mathf.RoundToInt(totalSize));
+        master.beacons[player].Add(new BeaconData(tempBeacon, tempBeaconScript));
+        master.upkeep[player] += beaconUpkeep;
 
         print("Total people inside this radius: " + Mathf.RoundToInt(totalSize));
     }

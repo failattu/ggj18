@@ -7,7 +7,7 @@ public class Beacon : MonoBehaviour
     public Master master;
     public int level = 1;
     public int range = 1;
-    public int income = 100;
+    public int affectedPeople;
     public int baseUpgradeCost = 100;
     public Vector3 pos = Vector3.zero;
     public GameObject obj;
@@ -15,12 +15,13 @@ public class Beacon : MonoBehaviour
     public float incomeFrequency = 5f;
     private float incomeCountdown;
 
-    public void Init(GameObject obj, Vector3 pos)
+    public void Init(GameObject obj, Vector3 pos, int affectedPeople)
     {
         master = Master.master;
 
         this.pos = pos;
         this.obj = obj;
+        this.affectedPeople = affectedPeople;
         foreach (Transform child in obj.transform)
         {
             if (child.name.Equals("Radius"))
@@ -49,7 +50,7 @@ public class Beacon : MonoBehaviour
         if (incomeCountdown <= 0)
         {
             incomeCountdown = incomeFrequency;
-            return income;
+            return Mathf.RoundToInt(affectedPeople / 1000) * 10;
         }
         else
             return 0;
