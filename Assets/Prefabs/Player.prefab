@@ -59,3 +59,9 @@ MonoBehaviour:
     m_Bits: 256
   beaconPrefab: {fileID: 1350712260733428, guid: 0f1ca8314e1a15c489c6931fa15e639b,
     type: 2}
+  beaconGhost: {fileID: 4216108276867010, guid: 4d7410fb25a2e30498b25455facbfba7,
+    type: 2}
+  beaconGhostMaterials:
+  - {fileID: 2100000, guid: 63cb55bdbcc81b84baf2c0e550c3b234, type: 2}
+  - {fileID: 2100000, guid: a28232c1b4c0e264f8f8096ce3a514a5, type: 2}
+  placeBeacon: 0
