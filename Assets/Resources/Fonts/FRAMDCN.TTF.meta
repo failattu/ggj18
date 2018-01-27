@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: dfdbc5231d3a8f64fb1a3572b6e2e999
+timeCreated: 1517049522
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Franklin Gothic Medium Cond
+  fontNames:
+  - Franklin Gothic Medium Cond
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
