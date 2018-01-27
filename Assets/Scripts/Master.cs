@@ -18,14 +18,18 @@ public class Master : MonoBehaviour
 {
     public static Master master; //lel
 
-    public int money = 0;
+    public int[] money;
 
-    public List<BeaconData> beacons;
+    public List<BeaconData>[] beacons;
 
     private void Awake()
     {
         master = this;
-        beacons = new List<BeaconData>();
+        beacons = new List<BeaconData>[4];
+        for(int i = 0; i < beacons.Length; i++)
+        {
+            beacons[i] = new List<BeaconData>();
+        }
     }
 
     private void Start()
@@ -36,22 +40,25 @@ public class Master : MonoBehaviour
     int beaconIncome = 0;
     private void Update()
     {
-        for(int i = 0; i < beacons.Count; i++)
+        for(int i = 0; i < beacons.Length; i++)
         {
-            money += beacons[i].script.IncomeUpdate();
+            for (int j = 0; j < beacons[i].Count; j++)
+            {
+                money[i] += beacons[i][j].script.IncomeUpdate();
+            }
         }
     }
 
-    public void Income(int amount)
+    public void Income(int player, int amount)
     {
-        money += amount;
+        money[player] += amount;
     }
 
-    public bool Pay(int cost)
+    public bool Pay(int player, int cost)
     {
-        if(money > cost)
+        if(money[player] > cost)
         {
-            money -= cost;
+            money[player] -= cost;
             return true;
         }
         else

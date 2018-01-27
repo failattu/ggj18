@@ -33,9 +33,9 @@ public class Beacon : MonoBehaviour
         incomeCountdown = incomeFrequency;
     }
 
-    public void Upgrade()
+    public void Upgrade(int player)
     {
-        if(master.Pay(baseUpgradeCost * level))
+        if(master.Pay(player, baseUpgradeCost * level))
         {
             level++;
             range++;
