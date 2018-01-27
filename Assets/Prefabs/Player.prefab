@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9d65a31ed1e6047b4f942ce7ef8ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beaconUpkeep: 300
   layers:
     serializedVersion: 2
     m_Bits: 4294967295

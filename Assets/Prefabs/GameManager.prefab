@@ -51,4 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c6530f22360454193562017f239554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: c4090000c4090000c4090000c4090000
+  startingMoney: 10000
+  players: 2
+  money: 
+  income: 
+  upkeep: 
+  popularity: 
