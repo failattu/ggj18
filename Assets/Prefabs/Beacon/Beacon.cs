@@ -8,15 +8,19 @@ public class Beacon : MonoBehaviour
     public int level = 1;
     public int range = 1;
     public int affectedPeople;
+    public int affectedPeopleShared;
     public int baseUpgradeCost = 100;
     public Vector3 pos = Vector3.zero;
     public GameObject obj;
     public Transform radius;
 
-    public void Init(GameObject obj, Vector3 pos, int affectedPeople)
+    public int player;
+
+    public void Init(int player, GameObject obj, Vector3 pos, int affectedPeople)
     {
         master = Master.master;
 
+        this.player = player;
         this.pos = pos;
         this.obj = obj;
         this.affectedPeople = affectedPeople;
@@ -30,7 +34,7 @@ public class Beacon : MonoBehaviour
         }
     }
 
-    public void Upgrade(int player)
+    public void Upgrade()
     {
         if(master.Pay(player, baseUpgradeCost * level))
         {
@@ -42,6 +46,6 @@ public class Beacon : MonoBehaviour
 
     public int Income()
     {
-        return Mathf.RoundToInt(affectedPeople / 1000) * 10;
+        return Mathf.RoundToInt((affectedPeople + (affectedPeopleShared * master.popularity[player])) / 1000) * 10;
     }
 }

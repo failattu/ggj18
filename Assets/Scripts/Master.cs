@@ -29,7 +29,7 @@ public class Master : MonoBehaviour
     //[System.NonSerialized]
     public int[] upkeep;
     //[System.NonSerialized]
-    public int[] popularity;
+    public float[] popularity;
 
     public List<BeaconData>[] beacons;
 
@@ -41,7 +41,7 @@ public class Master : MonoBehaviour
         money = new int[players];
         income = new int[players];
         upkeep = new int[players];
-        popularity = new int[players];
+        popularity = new float[players];
 
         master = this;
         beacons = new List<BeaconData>[players];

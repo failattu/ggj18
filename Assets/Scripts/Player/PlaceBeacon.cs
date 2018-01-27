@@ -10,6 +10,7 @@ public class PlaceBeacon : MonoBehaviour
 
     public LayerMask layers;
     public LayerMask beaconLayer;
+    public LayerMask beaconRadiusLayer;
     public LayerMask buildingLayer;
     public GameObject beaconPrefab;
     public Transform beaconGhost;
@@ -92,16 +93,25 @@ public class PlaceBeacon : MonoBehaviour
     GameObject tempBeacon;
     Beacon tempBeaconScript;
     Collider[] buildings;
+    Collider[] otherBeacons;
     public void SpawnBeacon(int player, Vector3 pos)
     {
-        buildings = Physics.OverlapSphere(hit.point, baseRange, buildingLayer);
-        float totalSize = 0;
-        print(buildings.Length);
-        if (buildings.Length > 0)
+        otherBeacons = Physics.OverlapSphere(hit.point, baseRange, beaconRadiusLayer);
+        if(otherBeacons.Length > 0)
         {
-            for (int i = 0; i < buildings.Length; i++)
+
+        }
+        else
+        {
+            buildings = Physics.OverlapSphere(hit.point, baseRange, buildingLayer);
+            float totalSize = 0;
+            //print(buildings.Length);
+            if (buildings.Length > 0)
             {
-                totalSize += (buildings[i].bounds.size.x * buildings[i].bounds.size.y * buildings[i].bounds.size.z) * buildings.Length / 100f;
+                for (int i = 0; i < buildings.Length; i++)
+                {
+                    totalSize += (buildings[i].bounds.size.x * buildings[i].bounds.size.y * buildings[i].bounds.size.z) * buildings.Length / 100f;
+                }
             }
         }
 
@@ -113,6 +123,11 @@ public class PlaceBeacon : MonoBehaviour
         master.beacons[player].Add(new BeaconData(tempBeacon, tempBeaconScript));
         master.upkeep[player] += beaconUpkeep;
 
-        print("Total people inside this radius: " + Mathf.RoundToInt(totalSize));
+        //print("Total people inside this radius: " + Mathf.RoundToInt(totalSize));
+    }
+
+    public void CalculateNewPopulation(Beacon[] beacons)
+    {
+
     }
 }
