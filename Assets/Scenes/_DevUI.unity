@@ -1621,9 +1621,40 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1245278770620708, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 198726536780939958, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f,
+        type: 2}
+      propertyPath: randomSeed
+      value: -278187637
+      objectReference: {fileID: 0}
+    - target: {fileID: 198726536780939958, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f,
+        type: 2}
+      propertyPath: ShapeModule.angle
+      value: 34.839924
+      objectReference: {fileID: 0}
+    - target: {fileID: 198726536780939958, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198726536780939958, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 198726536780939958, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f,
+        type: 2}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198726536780939958, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f,
+        type: 2}
+      propertyPath: lengthInSec
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 198726536780939958, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f, type: 2}
