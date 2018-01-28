@@ -110,6 +110,8 @@ public class PlaceBeacon : MonoBehaviour
     Collider[] otherBeacons;
     public void SpawnBeacon(int player, Vector3 pos)
     {
+        pos.y = 5;
+
         master.beaconPrice += 250;
         mainSceneUI.ChangeBeaconPrice(master.beaconPrice);
 		if (player == 0) {
