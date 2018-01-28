@@ -4051,7 +4051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1545880861
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4393,25 +4393,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85b9d49580b83954b873cec7e20196f3, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1570770693 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1699190148168952, guid: 85b9d49580b83954b873cec7e20196f3,
+--- !u!114 &1570770694 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114113214819343258, guid: 85b9d49580b83954b873cec7e20196f3,
     type: 2}
   m_PrefabInternal: {fileID: 1570770692}
---- !u!114 &1570770694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1570770693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a1448e6886b21f48a23963d35821661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plane: {fileID: 1220942413071232, guid: 0b2789b46ebf0bf429fef54ed3f4dc1f, type: 2}
-  cooldown: 15
-  cdCounters: []
 --- !u!1 &1571822137
 GameObject:
   m_ObjectHideFlags: 0
@@ -5075,11 +5062,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -5268,11 +5255,11 @@ MonoBehaviour:
     lineCount: 4
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
