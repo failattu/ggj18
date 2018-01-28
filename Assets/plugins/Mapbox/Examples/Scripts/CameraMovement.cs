@@ -9,7 +9,7 @@ namespace Mapbox.Examples
 		float _panSpeed = 20f;
 
 		[SerializeField]
-		float _zoomSpeed = 0f;
+		float _zoomSpeed = 50f;
 
 		[SerializeField]
 		Camera _referenceCamera;
@@ -91,10 +91,10 @@ namespace Mapbox.Examples
 			}
 			else
 			{
-				if (EventSystem.current.IsPointerOverGameObject())
-				{
-					return;
-				}
+				//if (EventSystem.current.IsPointerOverGameObject())
+				//{
+				//	return;
+				//}
 
 				// TODO: disable keyboard-specific input.
 				x = Input.GetAxis("Horizontal");

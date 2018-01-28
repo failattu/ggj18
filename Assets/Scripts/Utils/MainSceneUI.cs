@@ -18,8 +18,6 @@ public class MainSceneUI : MonoBehaviour
     public Image enemyCompanyLogo;
 	public BasicMap basemap;
 
-
-
 	void Awake(){
 		basemap.location = DoNotDeleteData.Instance.city;
 	}

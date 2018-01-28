@@ -4410,6 +4410,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85b9d49580b83954b873cec7e20196f3, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1570770693 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1699190148168952, guid: 85b9d49580b83954b873cec7e20196f3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1570770692}
 --- !u!114 &1570770694 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114113214819343258, guid: 85b9d49580b83954b873cec7e20196f3,
@@ -5680,6 +5685,26 @@ Prefab:
       propertyPath: AI
       value: 
       objectReference: {fileID: 1420768435}
+    - target: {fileID: 114688089769838278, guid: ef53a5bec35336e42b1993d520533199,
+        type: 2}
+      propertyPath: playerObj
+      value: 
+      objectReference: {fileID: 1570770693}
+    - target: {fileID: 114688089769838278, guid: ef53a5bec35336e42b1993d520533199,
+        type: 2}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1854710784}
+    - target: {fileID: 114688089769838278, guid: ef53a5bec35336e42b1993d520533199,
+        type: 2}
+      propertyPath: playerWinScreen
+      value: 
+      objectReference: {fileID: 1854710784}
+    - target: {fileID: 114688089769838278, guid: ef53a5bec35336e42b1993d520533199,
+        type: 2}
+      propertyPath: playerLoseScreen
+      value: 
+      objectReference: {fileID: 401755355}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef53a5bec35336e42b1993d520533199, type: 2}
   m_IsPrefabParent: 0
