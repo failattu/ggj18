@@ -14,6 +14,8 @@ public class PlaceBeacon : MonoBehaviour
     public GameObject beaconPrefab;
     public Transform beaconGhost;
     public Material[] beaconGhostMaterials;
+	public AudioClip soundEffect;
+	public AudioSource source;
 
     GameObject[] beaconParent;
     Vector3 hidePos = new Vector3(0, -100f, 0);

@@ -11,6 +11,11 @@ public class RunAdvertisement : MonoBehaviour
 
     public float cooldown;
     public float cdCounter;
+	public AudioClip runEffectPlayer;
+	public AudioClip runEffectCompetitor;
+	public AudioSource source;
+	public float AudioVolume;
+
     //public float[] cdCounters;
 
     public Button marketingButton;
@@ -26,6 +31,11 @@ public class RunAdvertisement : MonoBehaviour
         //if(cdCounters[player] < 0)
         if(cdCounter < 0 && master.Pay(player, master.campaignPrice))
         {
+			if (player == 0) {
+				source.PlayOneShot(runEffectPlayer,AudioVolume);
+			} else {
+				source.PlayOneShot(runEffectCompetitor,AudioVolume);
+			}
             master.popularity[player] = Mathf.Clamp(master.popularity[player] + 0.2f, 0f, 1f);
             //cdCounters[player] = cooldown;
             cdCounter = cooldown;
