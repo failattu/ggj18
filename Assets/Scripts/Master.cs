@@ -21,6 +21,7 @@ public class Master : MonoBehaviour
 
     [Header("Settings")]
     public int beaconPrice;
+    public int campaignPrice;
     public int beaconUpkeep;
     public int startingMoney;
     public int players;
@@ -44,13 +45,17 @@ public class Master : MonoBehaviour
     
     private float incomeCountdown;
 
-    [Header("TextMeshShit")]
+    [Header("TextMeshPro")]
     public TextMeshProUGUI[] customersTMP;
     public TextMeshProUGUI[] beaconsTMP;
     public TextMeshProUGUI[] popularityTMP;
     public TextMeshProUGUI incomeTMP;
 	public TextMeshProUGUI upkeepTMP;
 	public TextMeshProUGUI playerMoneyTMP;
+
+    [Header("Extra")]
+    public float delayAI;
+    public GameObject AI;
 
     private void Awake()
     {
@@ -71,13 +76,15 @@ public class Master : MonoBehaviour
             popularity[i] = 0.75f;
             customers[i] = 0;
         }
+
+        AI.SetActive(false);
     }
 
     private void Start()
     {
         incomeCountdown = incomeFrequency;
 
-        playerMoneyTMP.text = money[0].ToString();
+        playerMoneyTMP.text = money[0].ToString() + " mk";
         incomeTMP.text = "+ 0 mk";
         upkeepTMP.text = "- 0 mk";
 
@@ -87,6 +94,8 @@ public class Master : MonoBehaviour
             beaconsTMP[i].text = "0";
             popularityTMP[i].text = Mathf.Clamp(Mathf.RoundToInt(popularity[i] * 100f), 0, 100).ToString() + "%";
         }
+        
+        Invoke("UnshackleAI", delayAI);
     }
 
     int beaconIncome = 0;
@@ -138,5 +147,10 @@ public class Master : MonoBehaviour
         }
         else
             return false;
+    }
+
+    public void UnshackleAI()
+    {
+        AI.SetActive(true);
     }
 }

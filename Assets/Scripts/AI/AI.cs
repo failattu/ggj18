@@ -11,11 +11,13 @@ public class AI : MonoBehaviour
 
     public Master master;
     public PlaceBeacon placeBeacon;
+    public RunAdvertisement runAdvertisement;
 
     private void Start()
     {
         master = Master.master;
         placeBeacon = FindObjectOfType<PlaceBeacon>();
+        runAdvertisement = FindObjectOfType<RunAdvertisement>();
     }
 
     bool beaconingTime = false;
@@ -25,6 +27,7 @@ public class AI : MonoBehaviour
     {
         if(master.money[1] > 3500)
         {
+            //print(master.beacons[1].Count + " | " + master.popularity[1] + " | " + runAdvertisement.cdCounters[1]);
             if(beaconingTime)
             {
                 Vector3 pos = new Vector3(Random.Range(xMin, xMax), 5, Random.Range(zMin, zMax));
@@ -50,13 +53,15 @@ public class AI : MonoBehaviour
                     {
                         master.Pay(1, 3500);
                         placeBeacon.SpawnBeacon(1, pos);
+                        beaconingTime = false;
                     }
                 }
             }
-            else if(master.beacons[1].Count > 5 && master.popularity[1] < 0.75 && Random.value > 0.5f)
+            else if(master.beacons[1].Count > 5 && master.popularity[1] < 0.75 && Random.value > 0.5f && runAdvertisement.cdCounters[1] < 0)
             {
-                //master.Pay(1, 3500);
-                //Launch marketing campaing
+                //print("Advertising!");
+                master.Pay(1, 3500);
+                runAdvertisement.RunCampaign(1);
             }
             else
             {

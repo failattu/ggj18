@@ -125,7 +125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1245278770620708
 GameObject:
   m_ObjectHideFlags: 1
@@ -934,6 +934,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   spawnOffsetFromCamera: {x: -250, y: 25, z: 720}
+  flagTMPs:
+  - {fileID: 114879141941079100}
+  - {fileID: 114351306302640724}
+  flagImageObjs:
+  - {fileID: 1482129509277254}
+  - {fileID: 1245278770620708}
+  enemyFlagImg: {fileID: 114164297318614378}
 --- !u!114 &114879141941079100
 MonoBehaviour:
   m_ObjectHideFlags: 1

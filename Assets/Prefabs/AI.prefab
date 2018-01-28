@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1687485950257032}
+  m_RootGameObject: {fileID: 1560973469390246}
   m_IsPrefabParent: 1
---- !u!1 &1687485950257032
+--- !u!1 &1560973469390246
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4648784348465042}
-  - component: {fileID: 114688089769838278}
+  - component: {fileID: 4362763450273910}
+  - component: {fileID: 114334481295001682}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4648784348465042
+--- !u!4 &4362763450273910
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1687485950257032}
+  m_GameObject: {fileID: 1560973469390246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,40 +40,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114688089769838278
+--- !u!114 &114334481295001682
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1687485950257032}
+  m_GameObject: {fileID: 1560973469390246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c6530f22360454193562017f239554, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ccccb14885736c4781d659f70a2c67f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beaconPrice: 3500
-  campaignPrice: 3500
-  beaconUpkeep: 300
-  startingMoney: 10000
-  players: 2
-  incomeFrequency: 5
-  money: 
-  income: 
-  upkeep: 
-  popularity: []
-  customers: 
-  customersShared: 0
-  customersTMP:
-  - {fileID: 0}
-  - {fileID: 0}
-  beaconsTMP:
-  - {fileID: 0}
-  - {fileID: 0}
-  popularityTMP:
-  - {fileID: 0}
-  - {fileID: 0}
-  incomeTMP: {fileID: 0}
-  upkeepTMP: {fileID: 0}
-  playerMoneyTMP: {fileID: 0}
-  delayAI: 5
-  AI: {fileID: 0}
+  xMin: -400
+  xMax: 400
+  zMin: -400
+  zMax: 400
+  master: {fileID: 0}
+  placeBeacon: {fileID: 0}
+  runAdvertisement: {fileID: 0}
