@@ -176,8 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1235558828}
-  _visibleBuffer: 6
-  _disposeBuffer: 6
+  _visibleBuffer: 4
+  _disposeBuffer: 4
   _updateInterval: 0.2
 --- !u!114 &110210644
 MonoBehaviour:
@@ -3107,8 +3107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9527fd56bc6a0c549a1e550219f9b16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panSpeed: 20
-  _zoomSpeed: 50
+  _panSpeed: 10
+  _zoomSpeed: 0
   _referenceCamera: {fileID: 1235558828}
 --- !u!81 &1235558825
 AudioListener:
@@ -3203,10 +3203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623ae6c24fb1d6149821d80808afa052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMin: -450
-  xMax: 450
-  zMin: -1100
-  zMax: -50
+  xMin: -250
+  xMax: 250
+  zMin: -900
+  zMax: -250
 --- !u!1 &1247269389
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,12 +3443,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 14
+  m_fontSize: 18
   m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 8
+  m_fontSizeMax: 18
   m_fontStyle: 1
   m_textAlignment: 513
   m_isAlignmentEnumConverted: 1
@@ -3921,6 +3921,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1394930437}
+--- !u!1 &1420768435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1420768437}
+  - component: {fileID: 1420768436}
+  m_Layer: 0
+  m_Name: AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1420768436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1420768435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccccb14885736c4781d659f70a2c67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xMin: -400
+  xMax: 400
+  zMin: -400
+  zMax: 400
+  master: {fileID: 0}
+  placeBeacon: {fileID: 0}
+--- !u!4 &1420768437
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1420768435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1472157176
 GameObject:
   m_ObjectHideFlags: 0
@@ -6370,9 +6416,9 @@ MonoBehaviour:
   m_fontSize: 14
   m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 8
+  m_fontSizeMax: 14
   m_fontStyle: 1
   m_textAlignment: 516
   m_isAlignmentEnumConverted: 1

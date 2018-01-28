@@ -122,7 +122,7 @@ public class Master : MonoBehaviour
         upkeepTMP.text = "- " + upkeep[0].ToString() + " mk";
         for(int i = 0; i < players; i++)
         {
-            customersTMP[i].text = customers[i].ToString() + customersShared * popularity[i];
+            customersTMP[i].text = (customers[i] + Mathf.RoundToInt(customersShared * popularity[i])).ToString();
             beaconsTMP[i].text = beacons[i].Count.ToString();
             popularityTMP[i].text = Mathf.Clamp(Mathf.RoundToInt(popularity[i] * 100f), 0, 100).ToString() + "%";
         }

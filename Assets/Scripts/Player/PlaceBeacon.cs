@@ -135,7 +135,7 @@ public class PlaceBeacon : MonoBehaviour
                 }
             }
 
-            print(buildingsPlayerTotal.Count);
+            //print(buildingsPlayerTotal.Count);
         }
 
         if (master.beacons[1].Count > 0)
@@ -156,7 +156,7 @@ public class PlaceBeacon : MonoBehaviour
                 }
             }
 
-            print(buildingsAITotal.Count);
+            //print(buildingsAITotal.Count);
         }
 
         if(buildingsPlayerTotal.Count > 0 && buildingsAITotal.Count > 0)
@@ -178,7 +178,7 @@ public class PlaceBeacon : MonoBehaviour
                 buildingsAITotal.Remove(buildingsShared[i]);
             }
 
-            print("Player: " + buildingsPlayerTotal.Count + " | AI: " + buildingsAITotal.Count + " | Shared: " + buildingsShared.Count);
+            //print("Player: " + buildingsPlayerTotal.Count + " | AI: " + buildingsAITotal.Count + " | Shared: " + buildingsShared.Count);
         }
 
         float totalSize = 0;
