@@ -56,6 +56,9 @@ public class Master : MonoBehaviour
     [Header("Extra")]
     public float delayAI;
     public GameObject AI;
+    public GameObject playerObj;
+    public GameObject playerWinScreen;
+    public GameObject playerLoseScreen;
 
     private void Awake()
     {
@@ -94,7 +97,9 @@ public class Master : MonoBehaviour
             beaconsTMP[i].text = "0";
             popularityTMP[i].text = Mathf.Clamp(Mathf.RoundToInt(popularity[i] * 100f), 0, 100).ToString() + "%";
         }
-        
+
+        playerWinScreen.SetActive(false);
+        playerLoseScreen.SetActive(false);
         Invoke("UnshackleAI", delayAI);
     }
 
@@ -117,6 +122,33 @@ public class Master : MonoBehaviour
             popularity[i] -= Time.deltaTime * popularity[i] * 0.01f * (customers[i] / 150000f);
             popularityTMP[i].text = Mathf.Clamp(Mathf.RoundToInt(popularity[i] * 100f), 0, 100).ToString() + "%";
         }
+
+        for(int i = 0; i < players; i++)
+        {
+            if(income[i] < upkeep[i] && beaconPrice > money[i] && campaignPrice > money[i])
+            {
+                if(i == 0)
+                {
+                    Win(1);
+                }
+                else
+                {
+                    Win(0);
+                }
+            }
+        }
+    }
+
+    public void Win(int player)
+    {
+        if (player == 0)
+            playerWinScreen.SetActive(true);
+        else
+            playerLoseScreen.SetActive(true);
+
+        AI.SetActive(false);
+        playerObj.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void UpdateIncome()

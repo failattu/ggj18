@@ -12,6 +12,7 @@ public class AI : MonoBehaviour
     public Master master;
     public PlaceBeacon placeBeacon;
     public RunAdvertisement runAdvertisement;
+    private float advetisementCooldown;
 
     int nextTarget = -1;
 

@@ -31,6 +31,7 @@ public class RunAdvertisement : MonoBehaviour
             cdCounter = cooldown;
             GameObject tempPlane = Instantiate(plane);
             tempPlane.GetComponent<AdvertPlane>().Init(player);
+            master.UpdateIncome();
         }
     }
 
