@@ -18,6 +18,7 @@ public class MainSceneUI : MonoBehaviour
     [Header("UI Buttons")]
     public Button btnBeacon;
     public Button btnMarketing;
+    public TextMeshProUGUI beaconPrice;
 
     private void Start()
     {
@@ -51,5 +52,10 @@ public class MainSceneUI : MonoBehaviour
         {
             btnMarketing.interactable = true;
         }
+    }
+
+    public void ChangeBeaconPrice(int newPrice)
+    {
+        beaconPrice.text = newPrice.ToString() + " mk";
     }
 }

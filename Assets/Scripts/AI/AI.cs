@@ -37,7 +37,7 @@ public class AI : MonoBehaviour
                 bool tooClose = false;
                 for (int i = 0; i < master.beacons[1].Count; i++)
                 {
-                    if (Vector3.Distance(pos, master.beacons[1][i].obj.transform.position) < 100)
+                    if (Vector3.Distance(pos, master.beacons[1][i].obj.transform.position) < 75)
                     {
                         tooClose = true;
                         break;
@@ -73,6 +73,7 @@ public class AI : MonoBehaviour
             {
                 //master.Pay(1, master.campaignPrice);
                 runAdvertisement.RunCampaign(1);
+                nextTarget = -1;
             }
         }
         else
