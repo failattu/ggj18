@@ -42,21 +42,31 @@ public class TitleSceneUI : MonoBehaviour
 
     public void BtnStartGame()
     {
-        DoNotDeleteData.Instance.companyName[0] = companyNameTMP[0].text.ToUpper();
-        DoNotDeleteData.Instance.companyName[1] = companyNameTMP[1].text.ToUpper();
+        if(companyNameTMP[0].text.Length + companyNameTMP[0].text.Length > 2)
+        {
+            DoNotDeleteData.Instance.companyName[0] = companyNameTMP[0].text.ToUpper();
+            DoNotDeleteData.Instance.companyName[1] = companyNameTMP[1].text.ToUpper();
+        }
+        else
+        {
+            DoNotDeleteData.Instance.companyName[0] = "TELE";
+            DoNotDeleteData.Instance.companyName[1] = "CITY";
+        }
 
         SceneManager.LoadScene("MainScene");
     }
+
 	void HandleUserInput(string searchString)
 	{
+        if (searchString.Length < 2)
+            searchString = "Helsinki";
+
 		_hasResponse = false;
-		if (!string.IsNullOrEmpty(searchString))
-		{
-			_resource.Query = searchString;
-			Debug.Log ("Get data now!!");
-			MapboxAccess.Instance.Geocoder.Geocode(_resource, HandleGeocoderResponse);
-		}
+		_resource.Query = searchString;
+		Debug.Log ("Get data now!!");
+		MapboxAccess.Instance.Geocoder.Geocode(_resource, HandleGeocoderResponse);
 	}
+
 	void HandleGeocoderResponse(ForwardGeocodeResponse res)
 	{
 		_hasResponse = true;
