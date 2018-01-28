@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlaceBeacon : MonoBehaviour 
 {
     private Master master;
+    private MainSceneUI mainSceneUI;
 
     public LayerMask layers;
     public LayerMask beaconLayer;
@@ -27,6 +28,7 @@ public class PlaceBeacon : MonoBehaviour
     private void Start()
     {
         master = Master.master;
+        mainSceneUI = FindObjectOfType<MainSceneUI>();
         GameObject beaconParentParent = new GameObject();
         beaconParentParent.name = "Beacons";
         beaconParent = new GameObject[4];
@@ -104,6 +106,9 @@ public class PlaceBeacon : MonoBehaviour
     Collider[] otherBeacons;
     public void SpawnBeacon(int player, Vector3 pos)
     {
+        master.beaconPrice += 250;
+        mainSceneUI.ChangeBeaconPrice(master.beaconPrice);
+
         tempBeacon = Instantiate(beaconPrefab, pos, Quaternion.identity) as GameObject;
         tempBeacon.name = beaconPrefab.name + " " + master.beacons[player].Count;
         tempBeacon.transform.parent = beaconParent[player].transform;

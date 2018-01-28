@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Beacon : MonoBehaviour
 {
-    public Master master;
+    private Master master;
     public int level = 1;
     public int range = 1;
     public int baseUpgradeCost = 100;
@@ -13,6 +13,11 @@ public class Beacon : MonoBehaviour
     public Transform radius;
 
     public int player;
+
+    [Header("Materials & renderers for branded beacons")]
+    public MeshRenderer[] renderers;
+    public Material[] playerMaterials;
+    public Material[] enemyMaterials;
 
     public void Init(int player, GameObject obj, Vector3 pos)
     {
@@ -28,6 +33,17 @@ public class Beacon : MonoBehaviour
                 radius = child;
                 break;
             }
+        }
+
+        Material[] materials;
+        if (player == 0)
+            materials = playerMaterials;
+        else
+            materials = enemyMaterials;
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].material = materials[i];
         }
     }
 

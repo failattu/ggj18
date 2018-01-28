@@ -114,7 +114,7 @@ public class Master : MonoBehaviour
 
         for(int i = 0; i < popularity.Length; i++)
         {
-            popularity[i] -= Time.deltaTime * popularity[i] * 0.001f;
+            popularity[i] -= Time.deltaTime * popularity[i] * 0.01f * (customers[i] / 150000f);
             popularityTMP[i].text = Mathf.Clamp(Mathf.RoundToInt(popularity[i] * 100f), 0, 100).ToString() + "%";
         }
     }
@@ -139,7 +139,8 @@ public class Master : MonoBehaviour
 
     public bool Pay(int player, int cost)
     {
-        if(money[player] > cost)
+        //print("Player " + player + " is trying to pay " + cost + " mk");
+        if(money[player] >= cost)
         {
             money[player] -= cost;
 			playerMoneyTMP.text = money[0].ToString() + " mk";
