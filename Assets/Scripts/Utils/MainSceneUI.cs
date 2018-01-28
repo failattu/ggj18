@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mapbox.Unity.Utilities;
+using Mapbox.Unity.Map;
 using TMPro;
 
 public class MainSceneUI : MonoBehaviour 
@@ -10,7 +12,12 @@ public class MainSceneUI : MonoBehaviour
     public TextMeshProUGUI[] companyNameLogo;
     public TextMeshProUGUI enemyCompanyName;
     public Image enemyCompanyLogo;
+	public BasicMap basemap;
 
+
+	void Awake(){
+		basemap.location = DoNotDeleteData.Instance.city;
+	}
     private void Start()
     {
         companyNameLogo[0].text = DoNotDeleteData.Instance.companyName[0];

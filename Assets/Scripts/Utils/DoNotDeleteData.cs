@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
+using Mapbox.Utils;
 
 [System.Serializable]
 public class EnemyInfo
@@ -16,6 +17,7 @@ public class DoNotDeleteData : MonoBehaviour
     public string[] companyName;
     public EnemyInfo[] enemyInfos;
     public EnemyInfo enemyInfo;
+	public Vector2d city;
 
     void Awake ()   
 	{

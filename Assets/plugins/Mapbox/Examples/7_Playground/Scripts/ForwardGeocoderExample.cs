@@ -35,6 +35,8 @@ namespace Mapbox.Examples.Playground
 
         void SearchLocation_OnGeocoderResponse(ForwardGeocodeResponse response)
         {
+			Debug.Log("I WAS CALLED");
+
             _resultsText.text = JsonConvert.SerializeObject(_searchLocation.Response, Formatting.Indented, JsonConverters.Converters);
         }
     }

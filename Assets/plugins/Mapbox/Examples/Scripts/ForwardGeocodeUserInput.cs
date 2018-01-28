@@ -48,6 +48,7 @@ namespace Mapbox.Examples
 			_inputField = GetComponent<InputField>();
 			_inputField.onEndEdit.AddListener(HandleUserInput);
 			_resource = new ForwardGeocodeResource("");
+			Debug.Log ("AWAKEN USER INPUT");
 		}
 
 		void HandleUserInput(string searchString)
@@ -56,6 +57,7 @@ namespace Mapbox.Examples
 			if (!string.IsNullOrEmpty(searchString))
 			{
 				_resource.Query = searchString;
+				Debug.Log ("Get data now!!");
 				MapboxAccess.Instance.Geocoder.Geocode(_resource, HandleGeocoderResponse);
 			}
 		}
@@ -68,6 +70,7 @@ namespace Mapbox.Examples
 				var center = res.Features[0].Center;
 				_inputField.text = string.Format("{0},{1}", center.x, center.y);
 				_coordinate = res.Features[0].Center;
+				Debug.Log (_coordinate);
 			}
 			Response = res;
 			OnGeocoderResponse(res);
