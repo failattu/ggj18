@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 6a22eeca0be6e844faddf1ebb6abb6f7
   - enabled: 1
-    path: Assets/Scenes/_DevUI kossu.unity
-    guid: 8c3a52d601b56490db80614d102089e1
+    path: Assets/Scenes/MainScene.unity
+    guid: 78b193d6bc5713a4d901112b123722ec

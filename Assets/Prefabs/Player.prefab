@@ -58,6 +58,9 @@ MonoBehaviour:
   beaconLayer:
     serializedVersion: 2
     m_Bits: 256
+  beaconRadiusLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   buildingLayer:
     serializedVersion: 2
     m_Bits: 512

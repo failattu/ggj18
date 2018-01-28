@@ -9,7 +9,7 @@ namespace Mapbox.Examples
 		float _panSpeed = 20f;
 
 		[SerializeField]
-		float _zoomSpeed = 50f;
+		float _zoomSpeed = 0f;
 
 		[SerializeField]
 		Camera _referenceCamera;
@@ -118,7 +118,7 @@ namespace Mapbox.Examples
 			}
 		}
 
-		void LateUpdate()
+		void Update()
 		{
 
 			if (Input.touchSupported && Input.touchCount > 0)

@@ -19,10 +19,14 @@ public class Master : MonoBehaviour
 {
     public static Master master; //lel
 
+    [Header("Settings")]
     public int beaconPrice;
+    public int beaconUpkeep;
     public int startingMoney;
     public int players;
+    public float incomeFrequency = 5f;
 
+    [Header("Data")]
     //[System.NonSerialized]
     public int[] money;
     //[System.NonSerialized]
@@ -31,17 +35,22 @@ public class Master : MonoBehaviour
     public int[] upkeep;
     //[System.NonSerialized]
     public float[] popularity;
+    //[System.NonSerialized]
+    public int[] customers;
+    //[System.NonSerialized]
+    public int customersShared;
 
     public List<BeaconData>[] beacons;
-
-    public float incomeFrequency = 5f;
+    
     private float incomeCountdown;
 
-	//TextMeshProSHIIT
-	public TextMeshProUGUI clients_text;
-	public TextMeshProUGUI income_text;
-	public TextMeshProUGUI upkeep_text;
-	public TextMeshProUGUI my_money_text;
+    [Header("TextMeshShit")]
+    public TextMeshProUGUI[] customersTMP;
+    public TextMeshProUGUI[] beaconsTMP;
+    public TextMeshProUGUI[] popularityTMP;
+    public TextMeshProUGUI incomeTMP;
+	public TextMeshProUGUI upkeepTMP;
+	public TextMeshProUGUI playerMoneyTMP;
 
     private void Awake()
     {
@@ -49,6 +58,8 @@ public class Master : MonoBehaviour
         income = new int[players];
         upkeep = new int[players];
         popularity = new float[players];
+        customers = new int[players];
+        customersShared = 0;
 	
         master = this;
         beacons = new List<BeaconData>[players];
@@ -57,46 +68,64 @@ public class Master : MonoBehaviour
             beacons[i] = new List<BeaconData>();
             money[i] = startingMoney;
             upkeep[i] = 0;
-            popularity[i] = 0;
+            popularity[i] = 0.75f;
+            customers[i] = 0;
         }
-		my_money_text.text = startingMoney.ToString();
     }
 
     private void Start()
     {
         incomeCountdown = incomeFrequency;
+
+        playerMoneyTMP.text = money[0].ToString();
+        incomeTMP.text = "+ 0 mk";
+        upkeepTMP.text = "- 0 mk";
+
+        for (int i = 0; i < players; i++)
+        {
+            customersTMP[i].text = "0";
+            beaconsTMP[i].text = "0";
+            popularityTMP[i].text = Mathf.Clamp(Mathf.RoundToInt(popularity[i] * 100f), 0, 100).ToString() + "%";
+        }
     }
 
     int beaconIncome = 0;
     private void Update()
     {
-
         incomeCountdown -= Time.deltaTime;
         if (incomeCountdown <= 0)
         {
             incomeCountdown = incomeFrequency;
             for (int i = 0; i < players; i++)
             {
-                income[i] = 0;
-
-                for (int j = 0; j < beacons[i].Count; j++)
-                {
-                    income[i] += beacons[i][j].script.Income();
-                }
-
                 money[i] += income[i] - upkeep[i];
             }
-			my_money_text.text = money [0].ToString() + " mk";
-			upkeep_text.text = upkeep [0].ToString () + " mk";
-			income_text.text = income [0].ToString () + " mk";
-			clients_text.text = "0";
+			playerMoneyTMP.text = money[0].ToString() + " mk";
+        }
+
+        for(int i = 0; i < popularity.Length; i++)
+        {
+            popularity[i] -= Time.deltaTime * popularity[i] * 0.001f;
+            popularityTMP[i].text = Mathf.Clamp(Mathf.RoundToInt(popularity[i] * 100f), 0, 100).ToString() + "%";
         }
     }
 
-    public void Income(int player, int amount)
+    public void UpdateIncome()
     {
-        money[player] += amount;
+        for(int i = 0; i < income.Length; i++)
+        {
+            income[i] = Mathf.RoundToInt(customers[i] / 100f) * 10 + Mathf.RoundToInt((customersShared * popularity[i]) / 100f) * 10;
+            upkeep[i] = beacons[i].Count * beaconUpkeep;
+        }
 
+        incomeTMP.text = "+ " + income[0].ToString() + " mk";
+        upkeepTMP.text = "- " + upkeep[0].ToString() + " mk";
+        for(int i = 0; i < players; i++)
+        {
+            customersTMP[i].text = customers[i].ToString() + customersShared * popularity[i];
+            beaconsTMP[i].text = beacons[i].Count.ToString();
+            popularityTMP[i].text = Mathf.Clamp(Mathf.RoundToInt(popularity[i] * 100f), 0, 100).ToString() + "%";
+        }
     }
 
     public bool Pay(int player, int cost)
@@ -104,7 +133,7 @@ public class Master : MonoBehaviour
         if(money[player] > cost)
         {
             money[player] -= cost;
-			my_money_text.text = money[0].ToString() + " mk";
+			playerMoneyTMP.text = money[0].ToString() + " mk";
             return true;
         }
         else

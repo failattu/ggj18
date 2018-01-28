@@ -51,7 +51,9 @@ namespace Mapbox.Unity.Map
 			}
 
 			_elapsedTime += Time.deltaTime;
-			if (_elapsedTime >= _updateInterval)
+            //Puukotus
+			//if (_elapsedTime >= _updateInterval)
+            if(true)
 			{
 				_elapsedTime = 0f;
 				_ray = _camera.ViewportPointToRay(_viewportTarget);
@@ -75,6 +77,9 @@ namespace Mapbox.Unity.Map
 					}
 				}
 			}
+
+            //Puukotus
+            _shouldUpdate = false;
 		}
 
 		void Cleanup(UnwrappedTileId currentTile)

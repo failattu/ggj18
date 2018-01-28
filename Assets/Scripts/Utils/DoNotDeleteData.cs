@@ -5,8 +5,7 @@ using TMPro;
 public class DoNotDeleteData : MonoBehaviour 
 {
 	public static DoNotDeleteData Instance;
-	public string dataWeWant; 
-	public TextMeshProUGUI textualData;
+    public string[] companyName;
 
 	void Awake ()   
 	{
@@ -19,9 +18,8 @@ public class DoNotDeleteData : MonoBehaviour
 		{
 			Destroy (gameObject);
 		}
-	}
-	void Update(){
-		dataWeWant = textualData.text;
+
+        companyName = new string[2];
 	}
 }
 

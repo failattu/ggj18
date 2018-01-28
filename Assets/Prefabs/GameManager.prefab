@@ -52,10 +52,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beaconPrice: 3500
+  beaconUpkeep: 300
   startingMoney: 10000
   players: 2
+  incomeFrequency: 5
   money: 
   income: 
   upkeep: 
-  popularity: 
-  incomeFrequency: 5
+  popularity: []
+  customers: 
+  customersShared: 0
+  clientsTMP:
+  - {fileID: 0}
+  - {fileID: 0}
+  beaconsTMP:
+  - {fileID: 0}
+  - {fileID: 0}
+  popularityTMP:
+  - {fileID: 0}
+  - {fileID: 0}
+  incomeTMP: {fileID: 0}
+  upkeepTMP: {fileID: 0}
+  playerMoneyTMP: {fileID: 0}
