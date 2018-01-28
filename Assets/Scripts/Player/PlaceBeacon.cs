@@ -104,6 +104,7 @@ public class PlaceBeacon : MonoBehaviour
     Collider[] otherBeacons;
     public void SpawnBeacon(int player, Vector3 pos)
     {
+        master.beaconPrice += 250;
         tempBeacon = Instantiate(beaconPrefab, pos, Quaternion.identity) as GameObject;
         tempBeacon.name = beaconPrefab.name + " " + master.beacons[player].Count;
         tempBeacon.transform.parent = beaconParent[player].transform;

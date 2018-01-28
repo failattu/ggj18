@@ -139,7 +139,8 @@ public class Master : MonoBehaviour
 
     public bool Pay(int player, int cost)
     {
-        if(money[player] > cost)
+        print("Player " + player + " is trying to pay " + cost + " mk");
+        if(money[player] >= cost)
         {
             money[player] -= cost;
 			playerMoneyTMP.text = money[0].ToString() + " mk";

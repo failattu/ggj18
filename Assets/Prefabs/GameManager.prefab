@@ -52,9 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beaconPrice: 3500
-  campaignPrice: 3500
+  campaignPrice: 10000
   beaconUpkeep: 300
-  startingMoney: 10000
+  startingMoney: 5000
   players: 2
   incomeFrequency: 5
   money: 
