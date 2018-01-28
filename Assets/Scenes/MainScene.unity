@@ -4536,6 +4536,26 @@ Prefab:
       propertyPath: source
       value: 
       objectReference: {fileID: 1235558827}
+    - target: {fileID: 114515319467548782, guid: 85b9d49580b83954b873cec7e20196f3,
+        type: 2}
+      propertyPath: runEffectCompetitor
+      value: 
+      objectReference: {fileID: 8300000, guid: 732cca78a75b52d4fa22be923299f370, type: 3}
+    - target: {fileID: 114515319467548782, guid: 85b9d49580b83954b873cec7e20196f3,
+        type: 2}
+      propertyPath: runEffectPlayer
+      value: 
+      objectReference: {fileID: 8300000, guid: 0126d886b77d4a04a81b25fba8e6396c, type: 3}
+    - target: {fileID: 114515319467548782, guid: 85b9d49580b83954b873cec7e20196f3,
+        type: 2}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 1235558827}
+    - target: {fileID: 114515319467548782, guid: 85b9d49580b83954b873cec7e20196f3,
+        type: 2}
+      propertyPath: AudioVolume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85b9d49580b83954b873cec7e20196f3, type: 2}
   m_IsPrefabParent: 0

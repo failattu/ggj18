@@ -14,8 +14,10 @@ public class PlaceBeacon : MonoBehaviour
     public GameObject beaconPrefab;
     public Transform beaconGhost;
     public Material[] beaconGhostMaterials;
-	public AudioClip soundEffect;
+	public AudioClip runEffectPlayer;
+	public AudioClip runEffectCompetitor;
 	public AudioSource source;
+	public float AudioVolume;
 
     GameObject[] beaconParent;
     Vector3 hidePos = new Vector3(0, -100f, 0);
@@ -110,7 +112,11 @@ public class PlaceBeacon : MonoBehaviour
     {
         master.beaconPrice += 250;
         mainSceneUI.ChangeBeaconPrice(master.beaconPrice);
-
+		if (player == 0) {
+			source.PlayOneShot(runEffectPlayer,AudioVolume);
+		} else {
+			source.PlayOneShot(runEffectCompetitor,AudioVolume);
+		}
         tempBeacon = Instantiate(beaconPrefab, pos, Quaternion.identity) as GameObject;
         tempBeacon.name = beaconPrefab.name + " " + master.beacons[player].Count;
         tempBeacon.transform.parent = beaconParent[player].transform;
