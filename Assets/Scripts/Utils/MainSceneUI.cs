@@ -18,6 +18,11 @@ public class MainSceneUI : MonoBehaviour
     public Image enemyCompanyLogo;
 	public BasicMap basemap;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip beaconAvailable;
+    public AudioClip advertisementAvailable;
+
 	void Awake(){
 		basemap.location = DoNotDeleteData.Instance.city;
 	}
@@ -40,23 +45,38 @@ public class MainSceneUI : MonoBehaviour
         enemyCompanyLogo.sprite = DoNotDeleteData.Instance.enemyInfo.sprite;
     }
 
+    bool audioPlayedBeacon = true;
+    bool audioPlayedAdvertisement = true;
     private void Update()
     {
         if(master.money[0] < master.beaconPrice)
         {
+            audioPlayedBeacon = false;
             btnBeacon.interactable = false;
         }
         else
         {
+            if(!audioPlayedBeacon)
+            {
+                audioPlayedBeacon = true;
+                audioSource.PlayOneShot(beaconAvailable, 1f);
+            }
             btnBeacon.interactable = true;
         }
 
         if(master.money[0] < master.campaignPrice || advertisement.cdCounter > 0)
         {
+            //print("wut");
+            audioPlayedAdvertisement = false;
             btnMarketing.interactable = false;
         }
         else
         {
+            if(!audioPlayedAdvertisement)
+            {
+                audioPlayedAdvertisement = true;
+                audioSource.PlayOneShot(advertisementAvailable, 1f);
+            }
             btnMarketing.interactable = true;
         }
     }

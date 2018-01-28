@@ -55,7 +55,7 @@ public class AI : MonoBehaviour
 
                     if (totalSize > 5000)
                     {
-                        master.Pay(1, 3500);
+                        master.Pay(1, master.beaconPrice);
                         placeBeacon.SpawnBeacon(1, pos);
                         nextTarget = -1;
                         tries = 0;
