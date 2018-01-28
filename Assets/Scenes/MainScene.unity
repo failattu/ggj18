@@ -164,6 +164,9 @@ MonoBehaviour:
   _mapVisualizer: {fileID: 11400000, guid: 5b83ad0f48d51e646a055541cb8bd350, type: 2}
   _unityTileSize: 100
   _snapMapHeightToZero: 1
+  location:
+    x: 0
+    y: 0
 --- !u!114 &110210643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2027,6 +2030,7 @@ MonoBehaviour:
   - {fileID: 1970192515}
   enemyCompanyName: {fileID: 2017211578}
   enemyCompanyLogo: {fileID: 693933206}
+  basemap: {fileID: 110210642}
   btnBeacon: {fileID: 339981562}
   btnMarketing: {fileID: 1560154372}
   beaconPrice: {fileID: 1589037419}
